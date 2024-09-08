@@ -73,7 +73,7 @@ public class UserController {
 	
 	
 	
-	/* RedurectAtrributes
+	/* RedirectAtrributes
 	 * - 리다이렉트 시 request scope로 값을 전달할 수 있는
 	 *   스프링 제공 객체
 	 *   

@@ -1,4 +1,4 @@
-package edu.kh.todolist.common.config;
+package edu.kh.practicelist.common.config;
 
 import javax.sql.DataSource;
 
@@ -73,7 +73,7 @@ public class DBConfig {
 
 		// 별칭을 지정해야하는 DTO가 모여있는 패키지 지정
 		// -> 해당 패키지에 있는 모든 클래스가 클래스명으로 별칭이 지정됨
-		sessionFactoryBean.setTypeAliasesPackage("edu.kh.todolist");
+		sessionFactoryBean.setTypeAliasesPackage("edu.kh.practiceList");
 		
 		// 별칭 지정 전 -> edu.kh.demp.dto.User 라고 작성
 		// 별칭 지정 후 -> User                 라고만 작성

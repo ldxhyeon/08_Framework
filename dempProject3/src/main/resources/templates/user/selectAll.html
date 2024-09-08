@@ -32,22 +32,24 @@
   
       <tbody>
         <!-- th:block : 타임리프가 해석된 후 사라지는 태그 -->
+        <!-- Object를 사용하지 않으면 * 접근 불가 user.userId 이런식으로 접근해야한다. -->
         <th:block th:each= "user : ${userList}"
                 th:object="${user}">
   
-        <tr>
-          <th th:text="*{userNo}">userNo</th>
-  
-          <td>
-            <!-- pathVariable 이용 -->
-            <a th:href="@{/user/select/{userNo}(userNo=*{userNo})}" th:text="*{userId}">userId</a>
-          </td>
-  
-          <td th:text="*{userPw}">userPw</td>
-          <td th:text="*{userName}">userName</td>
-          <td th:text="*{enrollDate}">enrollDate</td>
-  
-        </tr>
+          <tr>
+            <th th:text="*{userNo}">userNo</th>
+    
+            <td>
+              <!-- pathVariable 이용 -->
+              <!-- @ == URL을 조회하는 문법 -->
+              <a th:href="@{/user/select/{userNo}(userNo=*{userNo})}" th:text="*{userId}">userId</a>
+            </td>
+    
+            <td th:text="*{userPw}">userPw</td>
+            <td th:text="*{userName}">userName</td>
+            <td th:text="*{enrollDate}">enrollDate</td>
+    
+          </tr>
   
         </th:block>
       </tbody>
