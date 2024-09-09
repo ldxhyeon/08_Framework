@@ -1,4 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="edu.kh.practicelist.mapper.PracticeListMapper">
+<mapper namespace="edu.kh.practicelist.mapper.TodoListMapper">
+
+	<select id="selectTodoList" parameterType="Todo" resultType="Todo">
+		SELECT
+			TODO_NO,
+			TODO_TITLE,
+			TODO_DETAIL,
+			TODO_COMPLETE,
+			REG_DATE
+		FROM
+			TB_TODO
+	</select>
+	
+	
+	<select id="selectCompleteCount" resultType="_int">
+		SELECT 
+			COUNT(*)
+		FROM
+			TB_TODO
+		WHERE
+			TODO_NO > 0
+			AND
+			TODO_COMPLETE = 1
+	</select>
+	
+	
+	<!-- 나머지 컬럼은 기본값이 있어서 자동으로 삽입됨  -->
+	<insert id="todoAdd" parameterType="Todo">
+			INSERT INTO TB_TODO(TODO_NO, TODO_TITLE, TODO_DETAIL)
+			VALUES(SEQ_USER_NO.NEXTVAL, #{todoTitle}, #{todoDetail})
+	</insert>
+	
+	
+	
+	<select id="todoDetail" parameterType="_int" resultType="Todo">
+		SELECT
+			TODO_NO,
+			TODO_TITLE,
+			TODO_DETAIL,
+			TODO_COMPLETE,
+			REG_DATE
+		FROM
+			TB_TODO
+		WHERE
+			TODO_NO = #{todoNo}
+	</select>
+	
+	
+	
 </mapper>

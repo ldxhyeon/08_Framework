@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TodoList</title>
+  <title>Document</title>
 </head>
 <body>
   <h3>
@@ -12,46 +12,42 @@
     완료된 Todo 개수 : [[${completeCount}]]
   </h3>
 
-
   <h4>할 일 추가</h4>
   <form action="/todo/add" method="post" id="addForm">
     <div>
       제목 : <input type="text" name="todoTitle">
     </div>
+
     <div>
-      <textarea name="todoDetail" 
-        rows="3" cols="50" placeholder="상세 내용"></textarea>
+      <textarea rows="3" cols="50" placeholder="상세내용" name="todoDetail"></textarea>
     </div>
+
     <button>추가</button>
   </form>
 
+ 
 
-  <table id="todoList" border="1">
+  <table border="1">
     <thead>
-      <tr>
-        <th>번호</th>
-        <th>할 일 제목</th>
-        <th>완료 여부</th>
-        <th>등록 날짜</th>
-      </tr>
+      <th>번호</th>
+      <th>할 일 제목</th>
+      <th>완료 여부</th>
+      <th>등록 날짜</th>
     </thead>
 
     <tbody th:each= "todo:${todoList}" th:object="${todo}">
-      <tr>
         <th th:text="*{todoNo}"></th>
 
         <th>
-          <a th:href="@{/todo/detail/{todoNo}(todoNo=*{todoNo})}" 
+          <a th:href="@{/todo/detail/{todoNo}(todoNo=*{todoNo})}"
           th:text="*{todoTitle}"></a>
         </th>
 
         <th th:text="*{todoComplete} == 1 ? 'O' : 'X'"></th>
-        <td th:text="*{regDate}"></td>
-      </tr>
+        <th th:text="*{regdate}"></th>
     </tbody>
   </table>
 
-
-  <th:block th:replace= "~{common/footer}"></th:block>
+  <th:block th:replace ="~{common/footer}"></th:block>
 </body>
 </html>
