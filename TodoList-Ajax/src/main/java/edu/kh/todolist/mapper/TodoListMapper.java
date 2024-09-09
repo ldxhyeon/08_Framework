@@ -56,6 +56,9 @@ public interface TodoListMapper {
 	 * @return
 	 */
 	int todoDelete(int todoNo);
+
+
+	String searchTitle(int todoNo);
 	
 	
 	
