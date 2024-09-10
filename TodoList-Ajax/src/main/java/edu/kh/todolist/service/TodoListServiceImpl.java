@@ -83,6 +83,22 @@ public class TodoListServiceImpl implements TodoListService{
 	}
 	
 	
+	@Override
+	public int getTotalCount() {
+		return mapper.getTotalCount();
+	}
+	
+	@Override
+	public int getCompleteCount() {
+		return mapper.selectCompleteCount();
+	}
+	
+	
+	@Override
+	public List<Todo> getTodoList() {
+		return mapper.selectTodoList();
+	}
+	
 	
 }
 

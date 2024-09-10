@@ -1,5 +1,6 @@
 package edu.kh.todolist.service;
 
+import java.util.List;
 import java.util.Map;
 
 import edu.kh.todolist.dto.Todo;
@@ -56,14 +57,25 @@ public interface TodoListService {
 	String searchTitle(int todoNo);
 	
 	
-	
+	/** 전체 할 일 개수 조회
+	 * @return totalCount
+	 */
+	int getTotalCount();
+
+
+
+	/** 완료된 할 일 개수 조회
+	 * @return completeCount
+	 */
+	int getCompleteCount();
+
 
 	
-	
-	
-	
-	
-	
+	/** 
+	 * @return
+	 */
+	List<Todo> getTodoList();
+
 	
 
 }
