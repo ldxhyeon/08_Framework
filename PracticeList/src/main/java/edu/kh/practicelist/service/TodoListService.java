@@ -12,4 +12,6 @@ public interface TodoListService {
 
 	Todo todoDetail(int todoNo);
 
+	int todoComplete(int todoNo);
+
 }

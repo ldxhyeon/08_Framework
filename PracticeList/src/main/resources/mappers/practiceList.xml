@@ -48,5 +48,16 @@
 	</select>
 	
 	
+	<update id="todoComplete" parameterType="_int">
+		UPDATE
+			TB_TODO
+		SET
+			TODO_COMPLETE 
+				= DECODE(TODO_COMPLETE, 0, 1, 0)
+		WHERE
+			TODO_NO = #{todoNo}
+	</update>
+	
+	
 	
 </mapper>

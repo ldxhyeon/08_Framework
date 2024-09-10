@@ -1,5 +1,7 @@
+// 현재 웹 페이지 URL 경로를 가져온다
 const pathname = location.pathname;
 
+// 마지막 슬래시의 인덱스를 찾아 그 이후 인덱스의 문자열을 추출
 const todoNo = pathname.substring(pathname.lastIndexOf('/') + 1);
 
 

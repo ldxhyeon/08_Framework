@@ -17,4 +17,6 @@ public interface TodoListMapper {
 
 	public Todo todoDetail(int todoNo);
 
+	public int todoComplete(int todoNo);
+
 }

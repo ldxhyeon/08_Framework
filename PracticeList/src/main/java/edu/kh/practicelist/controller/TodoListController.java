@@ -42,7 +42,11 @@ public class TodoListController {
 	
 	
 	
-	
+	/** 완료 여부 변경
+	 * @param todoNo : 쿼리스트링으로 전달된 todoNo 값
+	 * @param rq 
+	 * @return
+	 */
 	@GetMapping("detail/{todoNo}")
 	public String todoDetail(
 				@PathVariable("todoNo") int todoNo,
@@ -60,7 +64,34 @@ public class TodoListController {
 		model.addAttribute("todo", todo);
 		
 		return "todo/detail";
-		
 	}
+	
+	
+	@GetMapping("complete")
+	public String todoComplete(
+				@PathVariable("todoNo") int todoNo,
+				RedirectAttributes ra
+			) {
+		
+		int result = service.todoComplete(todoNo);
+		
+		
+		String message = null;
+		String path = null;
+		if(result > 0) {
+			message = "변경 되었습니다.";
+			path = "redirect:/";
+		}else {
+			message = "변경 실패.";
+			path = "redirect:/";
+		}
+		
+		ra.addFlashAttribute("message", message);
+		
+		return path;
+	}
+	
+	
+	
 	
 }

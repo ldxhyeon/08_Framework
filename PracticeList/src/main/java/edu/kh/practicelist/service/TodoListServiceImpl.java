@@ -42,5 +42,11 @@ public class TodoListServiceImpl implements TodoListService{
 	public Todo todoDetail(int todoNo) {
 		return mapper.todoDetail(todoNo);
 	}
+	
+	
+	@Override
+	public int todoComplete(int todoNo) {
+		return mapper.todoComplete(todoNo);
+	}
 
 }
