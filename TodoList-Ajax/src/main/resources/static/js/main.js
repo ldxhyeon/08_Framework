@@ -22,6 +22,8 @@ addBtn.addEventListener("click", () => {
       body : JSON.stringify( {"todoTitle" : title, "todoDetail" : detail} ) 
             // JS객체를 JSON 형태(문자열화)로 변환하여 Body에 추가
   })
+
+  
   .then(response => response.text() ) // 요청에 대한 응답 객체(response)를 필요한 형태로 파싱
   // response.text() : 컨트롤러 반환 값을 text형태로 변환
   //                   (아래 두 번째 then 매개 변수로 전달)
