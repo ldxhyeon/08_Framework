@@ -48,5 +48,17 @@ public class TodoListServiceImpl implements TodoListService{
 	public int todoComplete(int todoNo) {
 		return mapper.todoComplete(todoNo);
 	}
+	
+	
+	@Override
+	public int deleteList(int todoNo) {
+		return mapper.deleteList(todoNo);
+	}
+	
+	
+	@Override
+	public int updateContent(Todo todo) {
+		return mapper.updateContent(todo);
+	}
 
 }

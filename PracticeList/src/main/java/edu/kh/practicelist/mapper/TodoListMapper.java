@@ -19,4 +19,10 @@ public interface TodoListMapper {
 
 	public int todoComplete(int todoNo);
 
+	public int deleteList(int todoNo);
+
+	public int deleteList(Todo todo);
+
+	public int updateContent(Todo todo);
+
 }

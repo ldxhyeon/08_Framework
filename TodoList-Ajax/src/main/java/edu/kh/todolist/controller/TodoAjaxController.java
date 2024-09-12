@@ -94,6 +94,7 @@ public class TodoAjaxController {
 		 * 값 또는 화면 일부만 갱신 없이
 		 * 서버로 부터 응답 받고 싶을 때 사용
 		 *  */
+		System.out.println(result);
 		
 		return result; // service 수행 결과 그대로 반환
 	}

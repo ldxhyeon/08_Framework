@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.practicelist.dto.Todo;
@@ -69,7 +70,8 @@ public class TodoListController {
 	
 	@GetMapping("complete")
 	public String todoComplete(
-				@PathVariable("todoNo") int todoNo,
+				// 쿼리스트링일때는 RequestParam으로 받아와야한다.
+				@RequestParam("todoNo") int todoNo,
 				RedirectAttributes ra
 			) {
 		
@@ -80,7 +82,7 @@ public class TodoListController {
 		String path = null;
 		if(result > 0) {
 			message = "변경 되었습니다.";
-			path = "redirect:/";
+			path = "redirect:/todo/detail/" + todoNo;
 		}else {
 			message = "변경 실패.";
 			path = "redirect:/";
@@ -90,6 +92,72 @@ public class TodoListController {
 		
 		return path;
 	}
+	
+	
+	@GetMapping("delete")
+	public String deleteList(
+				@RequestParam("todoNo") int todoNo,
+				RedirectAttributes ra
+			) {
+		
+		int result = service.deleteList(todoNo);
+		
+		String message = null;
+		String path = null;
+		if(result > 0) {
+			message = "삭제 되었습니다.";
+			path = "redirect:/";
+		}else {
+			message = "삭제 실패.";
+			path = "redirect:/todo/detail/" + todoNo ;
+		}
+		
+		
+		ra.addFlashAttribute("message", message);
+		
+		return path;
+	}
+	
+	
+	
+	@GetMapping("update")
+	public String updateList(
+				@RequestParam("todoNo") int todoNo,
+				Model model
+			) {
+		
+		Todo todo = service.todoDetail(todoNo);
+		
+		model.addAttribute("todo", todo);
+		
+		return "/todo/update";
+	}
+	
+	
+	@PostMapping("update")
+	public String updateContent(
+			@ModelAttribute Todo todo,
+			RedirectAttributes ra
+			) {
+		
+		int result = service.updateContent(todo);
+		
+		String message = null;
+		String path = null;
+		if(result > 0) {
+			message = "수정 성공.";
+			path = "redirect:/todo/detail/" + todo.getTodoNo();
+		}else {
+			message = "수정 실패.";
+			path = "redirect:/todo/update/" + todo.getTodoNo() ;
+		}
+		
+		
+		ra.addFlashAttribute("message", message);
+		
+		return path;
+	}
+	
 	
 	
 	

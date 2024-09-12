@@ -14,4 +14,8 @@ public interface TodoListService {
 
 	int todoComplete(int todoNo);
 
+	int deleteList(int todoNo);
+
+	int updateContent(Todo todo);
+
 }

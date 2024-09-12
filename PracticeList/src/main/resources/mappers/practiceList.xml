@@ -59,5 +59,25 @@
 	</update>
 	
 	
+	<delete id="deleteList" parameterType="_int">
+		DELETE
+		FROM
+			TB_TODO
+		WHERE
+			TODO_NO = #{todoNo}
+	</delete>
+	
+	
+	<update id="updateContent" parameterType="Todo">
+		UPDATE
+			TB_TODO
+		SET
+			TODO_TITLE = #{todoTitle},
+			TODO_DETAIL = #{todoDetail}
+		WHERE
+			TODO_NO = #{todoNo}
+	</update>
+	
+	
 	
 </mapper>

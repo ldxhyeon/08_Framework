@@ -18,3 +18,29 @@ completeBtn.addEventListener("click", () => {
   // (true)O <-> X(false) 변경 요청
   location.href = "/todo/complete?todoNo=" + todoNo;
 });
+
+
+
+// 삭제 버튼 클릭 시
+const deleteBtn = document.querySelector("#deleteBtn");
+deleteBtn.addEventListener("click", () => {
+  
+  const isConfirmed = confirm("삭제 하시겠습니까?");
+
+  if (!isConfirmed) {
+    return;
+  }
+
+  location.href = "/todo/delete?todoNo=" + todoNo;
+
+});
+
+
+
+// 삭제 버튼 클릭 시
+const updateBtn = document.querySelector("#updateBtn");
+updateBtn.addEventListener("click", () => {
+  
+  location.href = "/todo/update?todoNo=" + todoNo;
+
+});
