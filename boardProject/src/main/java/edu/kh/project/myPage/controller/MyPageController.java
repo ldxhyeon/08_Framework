@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -121,5 +123,47 @@ public class MyPageController {
 		
 		return "redirect:info"; // /myPage/info GET방식 요청
 	}
+	
+	
+	
+	/** (비동기) 닉네임 중복 검사
+	 * @param input
+	 * @return 0 중복 X / 1 중복 O
+	 */
+	@ResponseBody // 응답 본문(ajax 코드)에 값 그대로 반환
+	@GetMapping("checkNickname")
+	public int checkNickname(
+				@RequestParam("input") String input
+			) {
+		return service.checkNickname(input);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

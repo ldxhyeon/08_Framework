@@ -226,3 +226,11 @@ form[name='myPageFrm']{position: relative;}
   color : white;
   margin-left: 2px;
 }
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}

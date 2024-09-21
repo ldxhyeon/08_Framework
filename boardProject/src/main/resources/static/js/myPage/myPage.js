@@ -41,3 +41,70 @@ document.querySelector("#findAddressBtn")
 
 // 함수명만 작성하는 경우 
 // 함수명() 작성하는 경우 : 함수에 정의된 내용을 실행
+
+
+// ----------------------------------------------------------------------
+
+/* ========== 유효성 검사(Vaildation) ========== */
+
+
+// 입력 값이 유효한 형태인지 표시하는 객체(체크리스트)
+const checkObj = {
+  "memberNickname" : true
+}
+
+/* 닉네임 검사 */
+// - 3글자 이상
+// - 중복 X
+const memberNickname = document.querySelector("#memberNickname");
+memberNickname.addEventListener("input", () => {
+  // input 이벤트 : 입력과 관련된 모든 동작 (JS를 이용한 값 세팅 제외)
+
+  // 입력된 값 얻어오기(양쪽 공백 제거)
+  const inputValue = memberNickname.value.trim();
+
+  if(inputValue.length < 3) { // 3글자 미만
+
+    // 클래스 제거
+    memberNickname.classList.remove("green");
+    memberNickname.classList.remove("red");
+
+    // 닉네임이 유효하지 않다고 기록
+    checkObj.memberNickname = false;
+
+    return;
+  }
+
+
+  // 비동기로 입력된 닉네임
+  // DB에 존재하는지 확인 Ajax 코드(fetch() API) 작성
+
+  // get방식 요청 (쿼리스트링으로 파라미터 전달)
+  fetch("/myPage/checkNickname?input=" + inputValue)
+ .then(response => {
+  if(response.ok) { // 응답 상태코드 200(성공)인 경우
+    return response.text(); // 응답 결과를 text형태로 변환
+  }
+  throw new Error("중복 검사 실패 : " + response.status);
+ }) 
+
+ .then(result => {
+  // result == 첫 번째 then에서 return된 값
+
+  if(result > 0) { // 중복인 경우
+    memberNickname.classList.add("red");
+    memberNickname.classList.remove("green");
+
+    checkObj.memberNickname = false; // 체크리스트에서 false 기록
+    return;
+  }
+
+  // 중복이 아닌 경우
+  memberNickname.classList.add("green");
+  memberNickname.classList.remove("red");
+  checkObj.memberNickname = true; // 체크리스트에서 true 기록
+ }) 
+
+ .catch(err => console.error(err));
+
+});

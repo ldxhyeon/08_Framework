@@ -13,4 +13,10 @@ public interface MypageMapper {
 	 */
 	int updateInfo(Member inputMember);
 
+	/** 닉네임 중복 검사
+	 * @param input
+	 * @return
+	 */
+	int checkNickname(String input);
+
 }

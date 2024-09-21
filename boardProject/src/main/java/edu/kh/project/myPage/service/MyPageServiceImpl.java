@@ -25,9 +25,14 @@ public class MyPageServiceImpl implements MyPageService{
 			// UPDATE 구문 수행 시 MEMBER_ADDRESS 컬럼 값이 NULL
 		}
 		
-		
 		// SQL 수행 후 결과 반환
 		return mapper.updateInfo(inputMember);
+	}
+	
+	
+	@Override
+	public int checkNickname(String input) {
+		return mapper.checkNickname(input);
 	}
 	
 }
