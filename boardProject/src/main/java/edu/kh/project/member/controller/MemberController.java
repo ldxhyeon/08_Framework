@@ -46,8 +46,8 @@ public class MemberController {
 		HttpServletResponse resp
 		) {
 		
-//		log.debug("memberEmail : {}", memberEmail);
-//		log.debug("memberPw : {}", memberPw);
+		//	log.debug("memberEmail : {}", memberEmail);
+		//	log.debug("memberPw : {}", memberPw);
 		
 		// 로그인 서비스 호출
 		Member loginMember = service.login(memberEmail, memberPw);
@@ -55,7 +55,6 @@ public class MemberController {
 		
 		if(loginMember == null) { // 로그인 실패
 			ra.addFlashAttribute("message", "이메일 또는 비밀번호가 일치하지 않습니다");
-	
 		}
 		
 		else { // 로그인 성공
@@ -120,6 +119,7 @@ public class MemberController {
 		 * - SessionStatus.setComplete();
 		 *  -> 세션 상태 완료 == 없앰(만료)
 		 */
+		// 세션 삭제
 		status.setComplete();
 		
 		return "redirect:/"; // 메인 페이지
