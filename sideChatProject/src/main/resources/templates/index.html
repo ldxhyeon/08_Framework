@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1:1 채팅</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <!-- 사용자 이름 입력 폼 -->
+    <div id="username-page">
+        <form id="usernameForm">
+            <input type="text" id="name" placeholder="사용자 이름을 입력하세요" required />
+            <button type="submit">채팅 시작</button>
+        </form>
+    </div>
+
+    <!-- 채팅창 -->
+    <div class="chat-container" id="chatContainer" style="display: none;">
+        <div class="chat-header">
+            <h2 id="chatWith"></h2>
+            <span class="close-btn" id="closeBtn">&times;</span>
+        </div>
+        <div class="chat-body" id="messageArea">
+            <!-- 메시지가 여기에 추가됩니다 -->
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="message" placeholder="메시지를 입력하세요" />
+            <button id="sendMessageBtn">전송</button>
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.0/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+</body>
+</html>
