@@ -25,5 +25,7 @@ public class ChatController {
    public void message(@RequestBody ChatRequestDto dto) {
        messagingTemplate.convertAndSend("/sub/chat/room/1", dto);
    }
+   
+   // config File Test
 
 }
