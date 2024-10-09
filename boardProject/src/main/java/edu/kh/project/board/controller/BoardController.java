@@ -119,6 +119,7 @@ public class BoardController {
 		}
 		
 		/* ----------- 조회 수 증가 시작 ----------- */
+		// 쿠키생성
 		
 		// 로그인한 회원이 작성한 글이 아닌 경우
 		if(loginMember == null || loginMember.getMemberNo() != board.getMemberNo()) {
