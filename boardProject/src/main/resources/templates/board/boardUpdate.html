@@ -14,7 +14,7 @@
     <main>
         <th:block th:replace="~{common/header}"></th:block>
 
-        <form th:action="@{update}" th:object="${board}" method="POST" 
+        <form action="update" th:object="${board}" method="POST" 
             class="board-write" id="boardUpdateFrm" enctype="multipart/form-data">  
 
             <h1 class="board-name" th:text="${boardName}">게시판 이름</h1>
@@ -111,9 +111,12 @@
         const previewList = document.querySelectorAll('img.preview');
 
         for(let img of imageList){
-            previewList[img.imageOrder].src = img.imagePath + img.imageReName;
-        }
+            previewList[img.imgOrder].src = img.imgPath + img.imgRename;
 
+            // 미리보기가 출력된 이미지 순서를
+            // orderList에 추가
+            orderList.push(img.imgOrder);
+        }
     </script>
 
 </body>
