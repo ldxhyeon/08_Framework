@@ -95,13 +95,14 @@ const selectMemberList = () => {
       loginBtn.innerText = "로그인";
       th4.append(loginBtn);
 
-      // 만약 탈퇴 상태인 경우 로그인 버튼 비활성화
+      // 만약 탈퇴 상태인 경우 로그인 버튼 비활성화 == disabled == true;
       if(member.memberDelFl === 'Y') {
         loginBtn.disabled = true;
       }else {
         // 탈퇴 상태가 아닌 경우
         // 만들어진 로그인 버튼에 클릭 이벤트를 추가
         loginBtn.addEventListener("click", () => {
+
 
           // body 태그 제일 마지막에 form 태그를 추가해
           // 제출하는 형식으로 코드 작성
