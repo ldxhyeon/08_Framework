@@ -2,9 +2,11 @@
 function getCookie(key){
 
   // 1. cookie 전부 얻어오기(string)
+  // 백엔드에서 쿠키에 저장된 이메일 가져오기
   const cookies = document.cookie; // "K=V;K=V;..." 
 
   // 2.";" 을 구분자로 삼아서 배열 형태로 쪼개기(split)
+  // ["email = dlehdgus3180"]
   const arr = cookies.split(";"); // ["K=V", "K=V"]
 
   // 3. 쪼개진 배열 요소를 하나씩 꺼내서
@@ -12,21 +14,27 @@ function getCookie(key){
 
   const cookieObj = {}; // 빈 객체 생성
 
+  // ["email", "dlehdgus3180"] 
   for(let entry of arr) {
+    
     // entry == "K=V"
     // -> "=" 기준으로 쪼개기(split)
     const temp = entry.split("=") // ["K", "V"]
 
+    // 키와 값을 객체에 저장
     cookieObj[temp[0]] = temp[1];
   }
 
 
   // 매개 변수로 전달 받은 key와 일치하는 value 반환
+  // ex) dlehdgus3180 값 반환
   return cookieObj[key];
 }
 
 // HTML 로딩(랜더링)이 끝난 후 수행
 document.addEventListener("DOMContentLoaded", () => {
+  
+  // dlehdgus3180 가져오기
   const saveEmail = getCookie("saveEmail") // 쿠키에 저장된 Email 얻어오기
 
   // 저장된 이메일이 없을 경우

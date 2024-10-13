@@ -37,6 +37,7 @@ public class MainServiceImpl implements MainService{
 	@Override
 	public int resetPw(int memberNo) {
 		
+		// 비밀번호 암호화 객체 생성후 "pass01"을 암호화 하여 저장
 		String encPw = encoder.encode("pass01!");
 		
 		return mapper.resetPw(memberNo, encPw);

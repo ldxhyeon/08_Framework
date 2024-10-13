@@ -58,6 +58,7 @@ public class MainController {
 		model.addAttribute("loginMember", loginMember); 
 		// request scope 기본 값
 		
+		// 메인 페이지로 이동
 		return "redirect:/";
 	}
 	

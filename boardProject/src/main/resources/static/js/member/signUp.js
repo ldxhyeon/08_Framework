@@ -44,6 +44,7 @@ const checkObj = {
 
 
 
+
 /* ------ 이메일 유효성 검사 ------ */
 
 // 1) 이메일 유효성 검사에 필요한 요소 얻어오기
@@ -61,7 +62,7 @@ emailMessageObj.check = "사용 가능한 이메일 입니다.";
 // 3) 이메일이 입력될 때 마다 유효성 검사를 수행
 memberEmail.addEventListener("input", e => {
 
-  // 입력된 값 얻어오기
+  // 입력된 값 공백 제거 후 얻어오기
   const inputEmail = memberEmail.value.trim();
 
   // 4) 입력된 이메일이 없을 경우 
