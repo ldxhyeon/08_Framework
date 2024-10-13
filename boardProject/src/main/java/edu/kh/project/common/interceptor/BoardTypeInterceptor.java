@@ -66,18 +66,21 @@ public class BoardTypeInterceptor implements HandlerInterceptor {
 			 log.info("----- boardTypeList 조회 -----");
 			 
 			 // DB에서 모든 게시판 종류를 조회하는 서비스 호출
+			 // ex) "boardCode": "1", "boardName": "공지사항"
 			 List<Map<String, String>> boardTypeList
 			 	= service.selectBoardTypeList();
 			 
 			 log.debug(boardTypeList.toString());
 			 
 			 // 조회 결과를 application 객체에 세팅
+			 // String Object 타입으로
 			 application.setAttribute("boardTypeList", boardTypeList);
 		}
 		
 		
 		
-		
+		// return이 true이면 다음 interceptor 실행
+		// false이면 중단
 		return HandlerInterceptor.super.preHandle(request, response, handler);
 	}
 	

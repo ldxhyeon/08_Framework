@@ -40,7 +40,10 @@ public class BoardNameInterceptor implements HandlerInterceptor{
 		// ex)  /editBoard/1/insert
 		String uri = request.getRequestURI();
 		
+		
 		try {
+			// / 기준으로 2번째 인덱스 문자열 자르기
+			// 127.0.0.1/board/1/2006 == 1
 			String code = uri.split("/")[2]; // boardCode 만 잘라내기
 			
 			// boardTypeList에서 boardCode가 같은 경우의 boardName 찾기
