@@ -22,6 +22,10 @@ public class BoardNameInterceptor implements HandlerInterceptor{
 		 * 게시판 이름 끼워 넣기
 		 *  */
 		
+		/**
+		 * interceptor 응용
+		 */
+		
 		// 1) application scope에서 "boardTypeList" 얻어오기
 		ServletContext application = request.getServletContext();
 		
