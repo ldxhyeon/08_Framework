@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kh.test.mapper.ProductMapper">
+
+
+	<!-- 반환 Map이 없음  -->
+	<select id="selectCategoryList" resultType="Map">
+		SELECT CATEGORY_NO, CATEGORY_NAME
+		FROM CATEGORY
+		ORDER BY CATEGORY_NO
+	</select>
+	
+</mapper>

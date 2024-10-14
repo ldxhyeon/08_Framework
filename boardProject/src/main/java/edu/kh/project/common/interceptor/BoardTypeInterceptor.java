@@ -70,7 +70,12 @@ public class BoardTypeInterceptor implements HandlerInterceptor {
 			 List<Map<String, String>> boardTypeList
 			 	= service.selectBoardTypeList();
 			 
+			 System.out.println(boardTypeList);
 			 log.debug(boardTypeList.toString());
+			 
+			 
+			 /// [{boardCode=1, boardName=공지 사항}, {boardCode=2, boardName=자유 게시판}, {boardCode=3, boardName=정보 게시판}, {boardCode=4, boardName=테스트}]
+			 // [{CATEGORY_NAME=생활가전, CATEGORY_NO=1}, {CATEGORY_NAME=편의품, CATEGORY_NO=2}, {CATEGORY_NAME=식료품, CATEGORY_NO=3}]
 			 
 			 // 조회 결과를 application 객체에 세팅
 			 // String Object 타입으로

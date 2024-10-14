@@ -36,6 +36,7 @@ public class InterceptorConfig implements WebMvcConfigurer{
 		
 				// BoardTypeInterceptor Bean을 인터셉터로 등록
 				// 코드가 끝나면 BoardTypeInterceptor prehandle() 메서드 실행
+				// BoardTypeInterceptor의 preHandle() 메서드가 호출됩니다.
 				registry.addInterceptor( boardTypeInterceptor() )
 			  .addPathPatterns("/**") // "/" 이하 모든 요청 가로챔
 			  .excludePathPatterns( // 가로채지 않을 요청 주소 작성
@@ -47,7 +48,6 @@ public class InterceptorConfig implements WebMvcConfigurer{
 				// /board 또는 /editBoard 이하 모든 요청을 가로채서
 				// 동작하는 boardNameInterceptor 등록
 				// 요청 URL이 /** 패턴과 일치하면,
-				// BoardTypeInterceptor의 preHandle() 메서드가 호출됩니다.
 				registry.addInterceptor(boardNameInterceptor())
 				.addPathPatterns("/board/**", "/editBoard/**");
 				
