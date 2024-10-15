@@ -1,5 +1,7 @@
 package edu.kh.project.board.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -341,6 +343,79 @@ public class BoardController {
 		
 		// 다른 코드없이 comment-list html 코드만 위임한다.
 		return "board/comment :: comment-list";
+	}
+	
+	
+	
+	/** 현재 게시글이 포함된 목록의 페이지로 리다이렉트
+	 * @param boardCode
+	 * @param boardNo
+	 * @param paramMap : 요청 파라미터가 모두 담긴 Map
+	 * @return
+	 */
+	// 주소 요청이 들어오면 쿼리스트링을 제외한 경로를 입력한다
+	@PostMapping("/{boardCode:[0-9]+}/{boardNo:[0-9]+}/goToList")
+	// @GetMapping("/{boardCode:[0-9]+}/{boardNo:[0-9]+}/goToList")
+	public String goToList(
+				@PathVariable("boardCode") int boardCode,
+				@PathVariable("boardNo") int boardNo,
+				@RequestParam Map<String, Object> paramMap 
+			) throws UnsupportedEncodingException{ 
+		
+		
+		// paramMap에 boardCode,boardNo 추가
+		paramMap.put("boardCode", boardCode);
+		paramMap.put("boardNo", boardNo);
+		
+		// 현재 게시글이 속해있는 페이지 번호 조회
+		int cp = service.getCurrentPage(paramMap);
+		
+		// 목록 조회 리다이렉트
+		String url = "redirect:/board/" + boardCode + "?cp=" + cp;
+		
+		
+		// 검색인 경우 쿼리스트링 추가
+		if(paramMap.get("key") != null) {
+			// &key=t&query=검색어
+			
+			// URLEncoder.encode("문자열", "UTF-8")
+			// - UTF-8 형태의 "문자열"을
+			//   URL이 인식할 수 있는 형태(application/x-www-from-urlencoded)로 변환
+			String query 
+				= URLEncoder.encode(paramMap.get("query").toString(), "UTF-8");
+			
+			url += "&key=" + paramMap.get("key")
+			     + "&query=" + query;
+			
+		}
+		
+		
+		// 목록 조회
+		return url;
+	}
+	
+	
+	// @ExceptionHandler(에외클래스.class)
+	// -> 해당 예외 발생 시
+	// 아래 작성된 메서드가 수행되게하는 어노테이션
+	
+	// - Class 레벨 : 클래스에서 발생하는 예외를 모두 잡아서 처리
+	// -> 동작하려는 Controller 클래스에 작성
+	
+	// - Global 레벨 : 프로젝트 전체에서 발생하는 예외를 잡아서 처리
+	// -> @ControllerAdvice가 작성된 클래스에 작성
+	
+	/** BoardController에서 발생하는 예외를
+	 *  한 번에 잡아서 처리하는 메서드(클래스 레벨)
+	 * @return
+	 */
+	// @ExceptionHandler(Exception.class)
+	public String boardExceptionHandler(Exception e, Model model) {
+		
+		model.addAttribute("e", e);
+		model.addAttribute("errorMessage", "게시글 관련 오류 발생");
+		
+		return "error/500";
 	}
 	
 	
