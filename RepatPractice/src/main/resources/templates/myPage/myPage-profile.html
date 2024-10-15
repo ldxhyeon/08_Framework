@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Page</title>
+
+   <!-- 공용 css/js 추가 -->
+   <th:block th:replace="~{common/common}"></th:block>
+
+   <!-- myPage 전용 css -->
+   <link rel="stylesheet" href="/css/myPage/myPage-style.css">
+</head>
+<body>
+
+  <main class="container">
+     <th:block th:replace="~{common/header}"></th:block>
+
+      <!-- 사이드바 -->
+      <th:block th:replace="~{myPage/sideMenu}"></th:block>
+    
+
+    <!-- 메인 컨텐츠 -->
+    <section class="main-content">
+        <div class="profile-box">
+            <h3>닉네임 님 안녕하세요.</h3>
+            <div class="profile-info">
+                <img src="profile-image.jpg" alt="프로필 이미지" class="profile-img">
+                <ul>
+                    <li>아이디: hx122</li>
+                    <li>닉네임: 강아중</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+  </main>
+
+</body>
+</html>
