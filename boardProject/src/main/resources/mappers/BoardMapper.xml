@@ -396,8 +396,7 @@
 		</when>
 	</choose>
 	
-	ORDER BY 
-		RNUM DESC
+	ORDER BY RNUM DESC
   </select>
   
   

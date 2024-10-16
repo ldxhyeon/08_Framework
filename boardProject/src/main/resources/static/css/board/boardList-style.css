@@ -241,4 +241,7 @@ a:hover {
     transform: scale(1.2);
 }
 
-
+#insertBtn:hover{
+    background-color: #7b1fa2;
+    opacity: 1;
+}
