@@ -42,6 +42,7 @@ public class SignUpFilter implements Filter {
 		// -> session 객체를 얻어오려면 HttpServletRequest가 필요
 		
 		// Http 통신이 가능한 형태로 request, response 다운 캐스팅
+		// 부모타입과 자식타입이 사용할 수 있는 메서드가 다름.
 		HttpServletRequest req = (HttpServletRequest)request;
 		HttpServletResponse resp = (HttpServletResponse)response;
 		

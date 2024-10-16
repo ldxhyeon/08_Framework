@@ -19,6 +19,7 @@ public class FilterConfig {
 		
 		// FilterReqistrationBean : 필터를 Bean으로 등록하는 객체
 		
+		// 필터를 등록하고 설정하기 위해 사용되는 객체 생성
 		FilterRegistrationBean<SignUpFilter> filter
 			= new FilterRegistrationBean<>();
 		
@@ -31,14 +32,18 @@ public class FilterConfig {
 		// 필터가 동작할 요청 경로 패턴 지정
 		String[] filteringUrl = {"/member/signUp"};
 		
+		// Arrays.asList == 배열을 List로 변환하는 메서드
 		filter.setUrlPatterns( Arrays.asList(filteringUrl) );
 		
+		
 		// 필터 이름 지정
+		// 디버깅할때 추적하기 수월함.
 		filter.setName("signUpFilter");
 		
 		
 		// 필터 순서 지정
 		filter.setOrder(1);
+		
 		
 		return filter;
 	}
