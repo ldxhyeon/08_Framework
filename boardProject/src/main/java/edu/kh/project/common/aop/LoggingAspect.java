@@ -25,13 +25,14 @@ import lombok.extern.slf4j.Slf4j;
 public class LoggingAspect {
 
 	// 모든 컨트롤러 수행 전에 로그 출력
+	// AOP의 조인포인트(메서드 호출, 생성자 호출 등)에 대한 정보가 담긴 객체
 	@Before("PointcutBundle.controllerPointcut()")
 	public void beforeController(JoinPoint jp) {
 
-		// 클래스명
+		// 호출된 메서드가 속한 클래스의 이름을 가져온다.
 		String className = jp.getTarget().getClass().getSimpleName();
 
-		// 메서드명
+		// 호출된 메서드의 이름을 가져온다.
 		String methodName = jp.getSignature().getName() + "()";
 
 		// 컨트롤러를 요청한 클라이언트의

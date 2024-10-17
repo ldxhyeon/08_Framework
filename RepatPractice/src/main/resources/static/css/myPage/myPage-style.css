@@ -5,92 +5,59 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f5f5f5;
-}
+/*  --------------------- 사이드 메뉴 --------------------- */
 
-.container {
-  display: flex;
-  min-height: 100vh;
-}
-
-/* 사이드바 스타일 */
 .left-side {
   width: 250px;
   background-color: #F5E6CC;
-  padding: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 100px; 
+  bottom: 0; 
+  left: 0; 
+  padding: 20px; /* 여백 추가 */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* 약간의 그림자 추가 */
 }
 
 .left-side h2 {
-  margin-bottom: 20px;
-  font-size: 1.5em;
-  color: #333;
-}
-
-.left-side ul {
-  list-style: none;
-}
-
-.left-side ul li {
-  margin-bottom: 10px;
-}
-
-.left-side ul li a {
-  text-decoration: none;
-  color: #333;
-  font-size: 1.1em;
-}
-
-.left-side ul li a:hover {
-  color: #ff8c00;
-}
-
-/* 메인 컨텐츠 스타일 */
-.main-content {
-  flex: 1;
-  background-color: #fff;
-  padding: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.profile-box {
-  background-color: #f9f4e8;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
-}
-
-.profile-box h3 {
-  font-size: 1.8em;
-  color: #333;
   margin-bottom: 20px;
-}
-
-.profile-info {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.profile-img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-right: 20px;
-}
-
-.profile-info ul {
-  list-style: none;
-  text-align: left;
-}
-
-.profile-info ul li {
-  font-size: 1.2em;
+  font-size: 20px;
   color: #333;
-  margin-bottom: 10px;
+}
+
+.side-menu {
+  display: flex;
+  flex-direction: column; /* 세로 정렬 */
+  gap: 15px; /* 항목 사이 간격 */
+  padding: 0;
+  list-style: none;
+}
+
+.side-menu li {
+  width: 100%;
+}
+
+.side-menu a {
+  display: block;
+  padding: 10px 15px;
+  text-align: center;
+  color: #333;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.side-menu a:hover {
+  background-color: #E8D8C3;
+}
+
+/*  --------------------- 메인 콘텐츠 --------------------- */
+
+.main-content {
+  height: 100%;
+  background-color: #444;
+  position: relative;
+  top: 100px; 
+  bottom: 0; 
+  left: 250px; 
 }
