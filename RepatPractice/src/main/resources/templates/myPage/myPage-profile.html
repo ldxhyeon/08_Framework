@@ -13,7 +13,7 @@
 </head>
 <body>
 
-  <main class="container">
+  <main>
 
     <!-- 헤더 -->
     <th:block th:replace="~{common/header}"></th:block>
@@ -27,7 +27,7 @@
           </li>
       
           <li>
-            <a href="/myPage/info">정보 수정</a>
+            <a href="/myPage/info">회원정보 수정</a>
           </li>
       
           <li>
@@ -43,17 +43,20 @@
 
     <!-- 메인 컨텐츠 -->
     <section class="main-content">
-        <div class="profile-box">
-            <h3>닉네임 님 안녕하세요.</h3>
-            <div class="profile-info">
-                <img src="profile-image.jpg" alt="프로필 이미지" class="profile-img">
-                <ul>
-                    <li>아이디: hx122</li>
-                    <li>닉네임: 강아중</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+      <div class="profile-box">
+          <h2>프로필</h2>
+          <div class="profile-info">
+              <img src="profile-image.jpg" class="profile-img">
+              <div class="profile-details">
+                  <h3>홍길동님 안녕하세요.</h3>
+                  <ul>
+                      <li><strong>아이디 : hx122</strong></li>
+                      <li><strong>가입일 : 2024-10-22 13:55:24</strong></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </section>
 
 
   </main>
