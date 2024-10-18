@@ -96,6 +96,38 @@
   
   
   
+  <select id="notReadCheck" resultType="_int">
+  	SELECT
+  		COUNT(*)
+  	FROM
+  		"NOTIFICATION"
+  	WHERE
+  		NOTIFICATION_CHECK = 'N'
+  		AND
+  		RECEIVE_MEMBER_NO = #{memberNo}
+  </select>
+  
+  
+  <delete id="deleteNotification">
+  	DELETE
+  	FROM
+  		"NOTIFICATION"
+  	WHERE
+  		NOTIFICATION_NO = #{notificationNo}
+  </delete>
+  
+  
+  	<!-- 알림 읽음 여부 변경(N->Y) -->
+	<update id="updateNotification">
+		UPDATE "NOTIFICATION"
+		SET
+			NOTIFICATION_CHECK = 'Y'
+		WHERE
+			NOTIFICATION_NO = #{notificationNo}
+	</update>
+  
+  
+  
   
   
   

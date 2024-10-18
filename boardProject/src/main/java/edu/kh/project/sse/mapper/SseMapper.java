@@ -30,4 +30,25 @@ public interface SseMapper {
 	 */
 	List<Notification> selectNotificationList(int memberNo);
 
+
+	
+	/** 
+	 * 현재 로그인한 회원의 알림 
+	 * 읽지 않은 알림 개수 조회
+	 * ("NOTIFICATION".NOTIFICATION_CHECK = 'N')
+	 * @return
+	 */
+	int notReadCheck(int memberNo);
+
+
+	/** 알림 삭제
+	 * @param notificationNo
+	 * @return
+	 */
+	void deleteNotification(int notificationNo);
+
+	
+	
+	void updateNotification(int notificationNo);
+
 }
