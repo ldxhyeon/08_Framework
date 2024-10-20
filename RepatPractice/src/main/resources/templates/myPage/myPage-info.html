@@ -18,27 +18,9 @@
     <!-- 헤더 -->
     <th:block th:replace="~{common/header}"></th:block>
 
-      <!-- 사이드바 -->
-    <section class="left-side">
-        <h2>마이페이지</h2>
-        <ul class="side-menu">
-          <li>
-            <a href="/myPage/profile">내 정보</a>
-          </li>
-      
-          <li>
-            <a href="/myPage/info">회원정보 수정</a>
-          </li>
-      
-          <li>
-            <a href="/myPage/changePw">게시물 관리</a>
-          </li>
-      
-          <li>
-            <a href="/myPage/secession">회원 탈퇴</a>
-          </li>
-      </ul>
-    </section>
+    <!-- 사이드바 -->
+    <th:block th:replace="~{myPage/sideMenu}"></th:block>
+    
     
 
     <!-- 메인 컨텐츠 -->
@@ -49,7 +31,7 @@
         <div class="profile-details">
           <div class="profile-text">
             <img src="profile-image.jpg" class="profile-img">
-            <div style="font-size: 24px;">
+            <div style="font-size: 20px;">
               <h3>RePet에 오신것을 환영합니다!</h3>
               <span><strong>아이디</strong>&nbsp;&nbsp;&nbsp;hx122</span>
               <span><strong>닉네임</strong>&nbsp;&nbsp;&nbsp;홍길동</span>

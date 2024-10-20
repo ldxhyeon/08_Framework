@@ -12,7 +12,7 @@ html, body {
 }
 
 
-/*  --------------------- 사이드 메뉴 --------------------- */
+/* ----------------- SideMenu CSS ----------------------- */
 
 .left-side {
   position: fixed; /* 고정 */
@@ -61,22 +61,23 @@ html, body {
   background-color: #E8D8C3;
 }
 
-/*  --------------------- 메인 콘텐츠 --------------------- */
+/*  --------------------- Main-Content CSS --------------------- */
 
 .main-content {
   position: relative;
   top: 100px; /* 헤더 아래부터 시작 */
   left: 300px; /* 사이드바 넓이 제외 */
   width: calc(100% - 300px); /* 사이드바 제외한 넓이 */
+  height: calc(100% - 100px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   padding-top: 20px; /* 헤더와 콘텐츠 사이 여백 추가 */
 }
 
 .profile-box {
-  width: 80%;
+  width: 70%;
   min-height: 300px; /* 최소 높이 설정 */
   background-color: #F5E6CC;
   display: flex;
@@ -122,7 +123,7 @@ html, body {
 
 .profile-details h3 {
   color: #333; /* h3 색상 설정 */
-  font-size: 30px;
+  font-size: 24px;
   font-weight: bold;
   position: absolute;
   top: 23px;
@@ -167,10 +168,10 @@ html, body {
   margin-bottom: 50px;
 }
 
-/* ----------------- mypage likeBoard ----------------------- */
+/* ----------------- MyPage likeBoard CSS ----------------------- */
 
 .like-board {
-  width: 80%;
+  width: 70%;
   background-color: #D9CBAF;
   min-height: 800px; /* 최소 높이 설정 */
   margin-bottom: 50px; /* 아래 공간 확보 */
@@ -238,6 +239,7 @@ html, body {
   justify-content: center; /* 가로 중앙 정렬 */
   width: 30px; /* 고정된 너비 */
   height: 30px; /* 고정된 높이 */
+  transition: color 0.3s; /* 부드러운 색상 전환 */
 }
 
 .pagenation-box div:hover {
@@ -259,8 +261,131 @@ html, body {
 
 
 
+/* ----------------- Mypage-changeInfo CSS ----------------------- */
+
+.info-main {
+  width: 100%;
+  height: 100vh;
+}
+
+.info-box {
+  background-color: #F5E6CC;
+  border-radius: 30px;
+  width: 450px;
+  padding: 30px 30px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  position: relative; /* 자식 요소 배치를 위해 position 설정 */
+  display: flex;
+  flex-direction: column; /* 세로 배치 */
+  justify-content: space-between; /* 버튼을 하단으로 배치 */
+}
+
+.info-box img {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 20px auto; /* 가운데 정렬 및 아래쪽 20px 간격 */
+}
+
+.info-box h4 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: left; /* 왼쪽 정렬 */
+  position: absolute;
+  top: 10px; /* 상단에서 10px 위치 */
+  left: 30px; /* 왼쪽에서 30px 위치 */
+}
+
+.info-box form {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* 입력 필드 영역을 확장 */
+  justify-content: flex-start; /* 입력 필드는 위쪽에 위치 */
+}
+
+.info-box input[type="email"],
+.info-box input[type="password"],
+.info-box input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.info-box .info-text {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 15px;
+  text-align: left; /* 텍스트 왼쪽 정렬 */
+  display: block; /* input 필드 바로 밑에 붙이기 위해 block 설정 */
+}
+
+/* 입력 필드에 포커스가 들어왔을 때 스타일 */
+.info-box input[type="password"]:focus,
+.info-box input[type="text"]:focus {
+  border-color: #7c9dff;
+  outline: none;
+}
+
+/* 버튼 스타일 */
+.info-box button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff7f50;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 30ox; /* 버튼을 하단으로 밀기 위해 auto 설정 */
+  transition: 0.3s; /* 부드러운 색상 전환 */
+}
+
+.info-box button:hover {
+  background-color: #ff6347;
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: column; /* 세로로 정렬 */
+  align-items: center; /* 중앙 정렬 */
+  position: relative;
+}
+  
+
+.icon-container > .fa-xmark {
+  position: absolute; /* 아이콘을 절대 위치로 설정 */
+  top: -3px; /* 프로필 이미지 위로 위치 */
+  right: 146px;
+  font-size: 18px; /* 아이콘 크기 조정 */
+  color: #333; /* 아이콘 색상 조정 */
+  transition: color 0.3s; /* 부드러운 색상 전환 */
+  cursor: pointer;
+}
+
+
+.icon-container > .fa-camera {
+  position: absolute; /* 아이콘을 절대 위치로 설정 */
+  top: 69px; /* 프로필 이미지 위로 위치 */
+  right: 145px;
+  font-size: 16px; /* 아이콘 크기 조정 */
+  color: #333; /* 아이콘 색상 조정 */
+  transition: color 0.3s; /* 부드러운 색상 전환 */
+  cursor: pointer;
+}
+
+.icon-container > .fa-xmark:hover {
+  color: #D32F2F; /* Hover 시 더 어두운 빨강 */
+}
+
+.icon-container > .fa-camera:hover {
+  color: #FF7F50; /* Hover 시 토마토 색상 */
+}
 
 
 
-
-
+/* ----------------- Mypage-board CSS ----------------------- */
