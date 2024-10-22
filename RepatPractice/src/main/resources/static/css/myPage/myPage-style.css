@@ -3,6 +3,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
 html, body {
@@ -275,9 +276,9 @@ html, body {
   padding: 30px 30px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
   position: relative; /* 자식 요소 배치를 위해 position 설정 */
-  display: flex;
   flex-direction: column; /* 세로 배치 */
   justify-content: space-between; /* 버튼을 하단으로 배치 */
+  display: none;
 }
 
 .info-box img {
@@ -331,9 +332,27 @@ html, body {
   outline: none;
 }
 
+.info-btn {
+  display: flex;
+  justify-content: space-around;
+}
+
 /* 버튼 스타일 */
-.info-box button {
-  width: 100%;
+.info-btn button:first-child {
+  width: 45%;
+  padding: 12px;
+  background-color: #e0e0e0;
+  color: #333;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 30ox; /* 버튼을 하단으로 밀기 위해 auto 설정 */
+  transition: 0.3s; /* 부드러운 색상 전환 */
+}
+
+.info-btn button:nth-child(2) {
+  width: 45%;
   padding: 12px;
   background-color: #ff7f50;
   color: white;
@@ -347,6 +366,11 @@ html, body {
 
 .info-box button:hover {
   background-color: #ff6347;
+}
+
+
+.info-box button:first-child:hover {
+  background-color: #d0d0d0;
 }
 
 .icon-container {
@@ -389,3 +413,120 @@ html, body {
 
 
 /* ----------------- Mypage-board CSS ----------------------- */
+
+.board-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.board-header > div {
+  width: 350px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #B2A285;
+  transition: all 0.3s ease; /* 모든 변화를 부드럽게 전환 */
+  cursor: pointer;
+}
+
+.board-header > div:hover {
+  color: #D4A373; /* 마우스를 올렸을 때 밝은 브라운 컬러 */
+  background-color: #F3E2C7; /* 배경색을 살짝 밝은 톤으로 변경 */
+  border-bottom: 2px solid #D4A373; /* 더 두꺼운 테두리로 강조 */
+  transform: translateY(-3px); /* 마우스 올렸을 때 살짝 위로 이동하는 효과 */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* 더 큰 그림자로 강조 */
+  transition: all 0.3s ease; /* 전환 효과 */
+}
+
+.board-header span {
+  color: #5A4B3A; /* 기본 텍스트 색상 */
+  font-weight: bold;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+
+/* ----------------- Mypage-Delete CSS ----------------------- */
+
+/* 모달 창 배경 */
+.modal-overlay {
+  width: 100%; /* 전체 화면의 너비 */
+  height: 100%; /* 전체 화면의 높이 */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 가운데 정렬 */
+}
+
+/* 모달 창 내용 */
+.modal-content {
+  width: 100%; /* 너비를 90%로 설정하여 반응형으로 유지 */
+  max-width: 600px; /* 최대 너비 설정 */
+  max-height: 80%; /* 최대 높이를 설정하여 내용이 잘리도록 함 */
+  height: 40%; /* 높이는 자동으로 조정 */
+  background-color: #F5E6CC;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: left; /* 여기를 유지 */
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column; /* 세로 방향 정렬 */
+  justify-content: flex-start; /* 위쪽 정렬 */
+  overflow: hidden; /* 내용이 모달 박스를 넘치지 않도록 설정 */
+  transition: max-height 0.3s ease-in-out; /* 부드러운 전환 효과 */
+}
+
+/* 모달 창 제목 */
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 15px; /* 아래쪽 여백 추가 */
+  text-align: center; /* 제목을 가운데 정렬 */
+}
+
+/* 모달 창 내용 텍스트 */
+.modal-content p {
+  font-size: 16px; /* 기본 글자 크기 */
+  color: #333;
+  line-height: 1.5;
+  margin: 10px 0;
+  text-align: left; /* 왼쪽 정렬 유지 */
+}
+
+/* 버튼 스타일 */
+.modal-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 35px;
+}
+
+.cancel-btn, .confirm-btn {
+  width: 48%;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.cancel-btn {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.confirm-btn {
+  background-color: #000;
+  color: #fff;
+}
+
+.cancel-btn:hover {
+  background-color: #d0d0d0;
+}
+
+.confirm-btn:hover {
+  background-color: #333;
+}

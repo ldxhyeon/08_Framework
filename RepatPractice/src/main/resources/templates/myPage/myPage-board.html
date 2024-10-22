@@ -18,15 +18,21 @@
     <!-- 사이드바 -->
     <th:block th:replace="~{myPage/sideMenu}"></th:block>
 
-     <!-- 메인 컨텐츠 -->
-     <!-- 메인 컨텐츠 -->
+    <!-- 메인 컨텐츠 -->
+    <!-- 메인 컨텐츠 -->
+    <!-- 감싸는 것만 id ? class -->
     <section class="main-content" style="padding: 0;">
 
       <div class="like-board" style="margin: 0;">
-        <!-- 제목 추가 -->
-        <div class="like-board-header">
-          <i class="fa-solid fa-heart" style="margin-right: 30px; color: #FF7F7F;"></i>
-          <h3>내가 좋아한 게시물 (5)</h3> 
+
+        <div class="board-header">
+          <div style="margin-left: 35px;">
+            <span>게시글 (4)</span>
+          </div>
+
+          <div style="margin-right: 35px;">
+            <span>댓글 (5)</span>
+          </div>
         </div>
 
         <!-- 게시물 항목들 -->
