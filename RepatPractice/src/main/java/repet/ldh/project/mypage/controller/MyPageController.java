@@ -14,10 +14,10 @@ public class MyPageController {
 	}
 	
 	
-	@GetMapping("changeInfo")
-	public String changeInfo() {
-		return "myPage/myPage-changeInfo";
-	}
+//	@GetMapping("changeInfo")
+//	public String changeInfo() {
+//		return "myPage/myPage-changeInfo";
+//	}
 	
 	
 	@GetMapping("board")

@@ -41,44 +41,51 @@
         </div>
       </div>
 
-    <div class="like-board">
-      <!-- 제목 추가 -->
-      <div class="like-board-header">
-        <i class="fa-solid fa-heart" style="margin-right: 30px; color: #FF7F7F;"></i>
-        <h3>내가 좋아한 게시물 (5)</h3> 
+      <div class="like-board">
+        <!-- 제목 추가 -->
+        <div class="like-board-header">
+          <i class="fa-solid fa-heart" style="margin-right: 30px; color: #FF7F7F;"></i>
+          <h3>내가 좋아한 게시물 (5)</h3> 
+        </div>
+
+        <!-- 게시물 항목들 -->
+        <div class="like-item">
+          <div class="like-item-title">내용내용내용내용내용내용내용내용내용내용</div>
+          <div class="like-item-sub">(자유게시판)</div>
+        </div>
+
+        <div class="like-item">
+          <div class="like-item-title">내용내용내용내용내용내용내용내용내용내용</div>
+          <div class="like-item-sub">(분양정보)</div>
+        </div>
+
+        <div class="like-item">
+          <div class="like-item-title">내용내용내용내용내용내용내용내용내용내용</div>
+          <div class="like-item-sub">(자유게시판)</div>
+        </div>
+
+        <div class="like-item">
+          <div class="like-item-title">내용내용내용내용내용내용내용내용내용내용</div>
+          <div class="like-item-sub">(분양정보)</div>
+        </div>
+
+        <div class="pagenation-box">
+          <a href="#" style="margin-right: 10px;">&lt;&lt;</a>
+          <a href="#" style="margin-right: 5px;">&lt;</a>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+          <a href="#" style="margin-left: 5px;">&gt;</a>
+          <a href="#" style="margin-left: 10px;">&gt;&gt;</a>
+        </div>
       </div>
 
-      <!-- 게시물 항목들 -->
-      <div class="like-item">
-        <div class="like-item-title">내용내용내용내용내용내용내용내용내용내용</div>
-        <div class="like-item-sub">(자유게시판)</div>
-      </div>
-      <div class="like-item">
-        <div class="like-item-title">내용내용내용내용내용내용내용내용내용내용</div>
-        <div class="like-item-sub">(분양정보)</div>
-      </div>
-      <div class="like-item">
-        <div class="like-item-title">내용내용내용내용내용내용내용내용내용내용</div>
-        <div class="like-item-sub">(자유게시판)</div>
-      </div>
-      <div class="like-item">
-        <div class="like-item-title">내용내용내용내용내용내용내용내용내용내용</div>
-        <div class="like-item-sub">(분양정보)</div>
-      </div>
+      <th:block th:replace="~{myPage/modifyModal}"></th:block>
 
-      <div class="pagenation-box">
-        <a href="#" style="margin-right: 10px;">&lt;&lt;</a>
-        <a href="#" style="margin-right: 5px;">&lt;</a>
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
-        <a href="#" style="margin-left: 5px;">&gt;</a>
-        <a href="#" style="margin-left: 10px;">&gt;&gt;</a>
-      </div>
-    </div>
-
+      <th:block th:replace="~{myPage/deleteModal}"></th:block>
+          
   </section>
 
 
