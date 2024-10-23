@@ -38,4 +38,5 @@ deleteMenu.addEventListener("click", (e) => {
 deleteCancelBtn.addEventListener("click",() => {
 
   deleteModal.style.display = "none";
+  
 });

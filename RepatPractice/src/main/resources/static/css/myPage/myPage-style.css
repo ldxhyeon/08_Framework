@@ -10,10 +10,12 @@ html, body {
   height: 100%;
   width: 100%;
   overflow-x: hidden; /* 가로 스크롤 방지 */
+  overflow-y: auto; /* 세로 스크롤 허용 */
 }
 
 .info-main {
   height: 100vh;
+  padding-bottom: 50px; /* 맨 아래 여백 추가 */
 }
 
 
@@ -71,8 +73,8 @@ html, body {
 .main-content {
   position: relative;
   top: 100px; /* 헤더 아래부터 시작 */
-  left: 300px; /* 사이드바 넓이 제외 */
-  width: calc(100% - 300px); /* 사이드바 제외한 넓이 */
+  left: 362px; /* 사이드바 넓이 제외 */
+  width: 1500px;
   height: calc(100% - 100px);
   display: flex;
   flex-direction: column;
@@ -178,10 +180,10 @@ html, body {
 .like-board {
   width: 1100px;
   background-color: #D9CBAF;
-  min-height: 800px; /* 최소 높이 설정 */
-  margin-bottom: 50px; /* 아래 공간 확보 */
+  min-height: 800px;
+  margin-bottom: 50px; /* 기존 아래 공간 외 추가 여백 */
   border-radius: 40px;
-  padding: 20px; /* 내부 여백 추가 */
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -412,7 +414,7 @@ html, body {
 .icon-container > .fa-camera {
   position: absolute; /* 아이콘을 절대 위치로 설정 */
   top: 69px; /* 프로필 이미지 위로 위치 */
-  right: 166px;
+  right: 167px;
   font-size: 16px; /* 아이콘 크기 조정 */
   color: #333; /* 아이콘 색상 조정 */
   transition: color 0.3s; /* 부드러운 색상 전환 */
@@ -433,15 +435,28 @@ html, body {
 
 .board-content {
   position: relative;
-  top: 100px; /* 헤더 아래부터 시작 */
-  left: 300px; /* 사이드바 넓이 제외 */
-  width: calc(100% - 300px); /* 사이드바 제외한 넓이 */
+  top: 110px;
+  padding-top: 20px;
+  left: 300px;
+  width: calc(100% - 300px);
   height: calc(100% - 100px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 20px; /* 헤더와 콘텐츠 사이 여백 추가 */
+  margin-bottom: 50px; /* 맨 아래 여백 추가 */
+}
+
+
+.post-comment-management {
+  width: 1100px;
+  height: 100%;
+  background-color: #D9CBAF;
+  border-radius: 40px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .board-header {
@@ -480,6 +495,13 @@ html, body {
 }
 
 .board-content > p {
+  font-size: 20px;
+  color: #939393;
+  margin-bottom: 30px;
+}
+
+.board-content p {
+  margin-top: 20px; /* p 태그 위 여백 추가 */
   font-size: 20px;
   color: #939393;
   margin-bottom: 30px;
