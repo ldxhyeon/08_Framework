@@ -17,4 +17,7 @@ public interface MyPageMapper {
 	// 프로필 회원 조회
 	Member memberList(int memberNo);
 
+
+	List<Board> selectLikeList(int memberNo);
+
 }

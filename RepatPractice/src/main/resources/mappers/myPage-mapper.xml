@@ -30,6 +30,24 @@
 		WHERE
 			MEMBER_NO = #{memberNo}
 	</select>
+	
+	
+		<select id="selectLikeList" resultType="Board">
+		SELECT 
+		    B.BOARD_NO, 
+		    B.BOARD_TITLE, 
+		    B.BOARD_CONTENT, 
+		    B.BOARD_WRITE_DATE,
+		    B.READ_COUNT
+		FROM 
+		    BOARD_LIKE BL
+		JOIN 
+		    BOARD B 
+		ON 
+		    BL.BOARD_NO = B.BOARD_NO
+		WHERE 
+		    BL.MEMBER_NO = #{memberNo}
+	</select>
 		
 	
 	

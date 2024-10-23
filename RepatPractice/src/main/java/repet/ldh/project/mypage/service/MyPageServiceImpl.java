@@ -27,5 +27,10 @@ public class MyPageServiceImpl implements MyPageService {
 	public Member memberList(int memberNo) {
 		return mapper.memberList(memberNo);
 	}
+	
+	@Override
+	public List<Board> selectLikeList(int memberNo) {
+		return mapper.selectLikeList(memberNo);
+	}
 
 }

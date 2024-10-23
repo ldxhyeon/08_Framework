@@ -1,13 +1,13 @@
 package repet.ldh.project.mypage.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
 import repet.ldh.project.board.dto.Board;
@@ -28,19 +28,21 @@ public class MyPageController {
 				Model model
 			) {
 
-		// 좋아요 누른 게시물 리스트 조회
-		List<Board> likeList = service.likeList(memberNo);
-		
-		System.out.println(likeList);
-		
 		Member member = service.memberList(memberNo);
 		
-		System.out.println(member);
-		
-		model.addAttribute("likeList", likeList);
 		model.addAttribute("member", member);
 
 		return "myPage/myPage-info";
+	}
+	
+	
+	@ResponseBody
+	@GetMapping("selectLikeList")
+	public List<Board> selectLikeList(
+				@RequestParam("memberNo") int memberNo
+			) {
+		
+		return service.selectLikeList(memberNo);
 	}
 	
 	

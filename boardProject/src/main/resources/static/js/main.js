@@ -1,4 +1,4 @@
-// 쿠키에 저장된 여러 값 중 key가 일치하는 value 반환
+ // 쿠키에 저장된 여러 값 중 key가 일치하는 value 반환
 function getCookie(key){
 
   // 1. cookie 전부 얻어오기(string)
