@@ -13,6 +13,7 @@ const pageNoList = document.querySelectorAll(".pagination a");
 */
 
 // 페이지 이동 버튼이 클릭 되었을 때
+// null이나 undefined가 아닐 경우에만 forEach 메서드를 호출
 pageNoList?.forEach( (item, index) => {
 
   // 클릭 되었을 때
