@@ -33,9 +33,9 @@
             <img src="profile-image.jpg" class="profile-img">
             <div style="font-size: 20px;">
               <h3>RePet에 오신것을 환영합니다!</h3>
-              <span><strong>아이디</strong>&nbsp;&nbsp;&nbsp;<span>hx122</span></span>
-              <span><strong>닉네임</strong>&nbsp;&nbsp;&nbsp;<span>홍길동</span></span>
-              <span><strong>가입일</strong>&nbsp;&nbsp;&nbsp;<span>2024-10-22 13:55:24</span></span>
+              <span><strong>아이디</strong>&nbsp;&nbsp;&nbsp;<span th:text="${member.memberEmail}">hx122</span></span>
+              <span><strong>닉네임</strong>&nbsp;&nbsp;&nbsp;<span th:text="${member.memberNickname}">홍길동</span></span>
+              <span><strong>가입일</strong>&nbsp;&nbsp;&nbsp;<span th:text="${member.enrollDate}">2024-10-22 13:55:24</span></span>
             </div>
           </div>
         </div>
@@ -59,18 +59,15 @@
         </div> -->
         
 
-
+      <!-- 페이지 네이션 -->
       <div class="pagination-box">
         <a href="#" style="margin-right: 10px;">&lt;&lt;</a>
         <a href="#" style="margin-right: 5px;">&lt;</a>
         <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
         <a href="#" style="margin-left: 5px;">&gt;</a>
         <a href="#" style="margin-left: 10px;">&gt;&gt;</a>
       </div>
+
     </div>
 
     <th:block th:replace="~{myPage/modifyModal}"></th:block>
