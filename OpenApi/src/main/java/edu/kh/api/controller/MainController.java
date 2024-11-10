@@ -127,6 +127,7 @@ public class MainController {
 			= objectMapper.readValue(
 					itemNode.toString(), // items JSON 반환(문자열)
 					new TypeReference<List<ItemDto>>() {});
+		
 		// items JSON 데이터를 읽어올 때 
 		// List<ItemDto>를 참조해서 형변환
 		
