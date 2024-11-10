@@ -44,6 +44,7 @@ const getAirQuality =  async (cityName) => {
   // 요청 주소 조합(주소 + 쿼리스트링)
   let url = `http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty`;
 
+  
   url += `?serviceKey=${serviceKey}`;
   url += `&sidoName=${cityName}`;
   url += `&returnType=json`;
@@ -59,6 +60,7 @@ const getAirQuality =  async (cityName) => {
     if(!response2.ok) throw new Error("공공데이터 조회 실패");
 
     const data = await response2.json();
+
     console.log(data)
 
     // 필요한 데이터만 추출
@@ -86,6 +88,8 @@ const getAirQuality =  async (cityName) => {
     const gredeText = ['좋음', '보통', '나쁨', '매우나쁨'];
 
 
+    // GRADE 값이 1부터 시작
+    // 배열은 0부터 시작
     pm10Grade.innerText     = gredeEmoji[item.pm10Grade - 1];
     pm10GradeText.innerText = gredeText [item.pm10Grade - 1];
     pm10Value.innerText     = `미세먼지 농도 : ${item['pm10Value']} ㎍/㎥`;
