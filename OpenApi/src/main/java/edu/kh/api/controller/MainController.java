@@ -34,6 +34,7 @@ import lombok.extern.slf4j.Slf4j;
 public class MainController {
 	
 	// 서비스키 얻어오기
+	// 공공api servcieKey
 	@Value("${api.serviceKey.encoding}")
 	private String encodingServiceKey;
 	
