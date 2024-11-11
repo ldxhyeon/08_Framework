@@ -127,3 +127,34 @@ document.querySelector("#selectBtn2")
   location.href = location.pathname + "?cityName=" + cityName;
   
 });
+
+
+  /* 개인 API 인증키 */
+
+  const serviceKey = "U8MtzBlHuk53iF103rKV6T%2BxfqwfKMfkoPOOD6O8WxmTRSxoXMrmnptumFyfXhtWFqJQ6%2ByjxJ6zzj1%2BJhcRqQ%3D%3D";
+
+
+  const getAirPollution = (cityName) => {
+    // url 작성 없음
+    let requestUrl = `http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty`;
+      
+    requestUrl += `?serviceKey=${serviceKey}`;
+    requestUrl += `&sidoName=${cityName}`;
+    requestUrl += `&returnType=json`;
+    requestUrl += `&numOfRows=1`;
+    requestUrl += `&pageNo=1`;
+    requestUrl += `&ver=1.0`;
+	
+	fetch(requestUrl)
+	.then(resp => {
+		if(resp.ok) return resp.json();
+
+		throw new Error("api 요청 실패");
+	})
+
+	.then(result => { console.log(result); })
+	.catch(err => console.error(err));
+}
+
+getAirPollution('인천');
+
